@@ -1,2 +1,1 @@
-I CREATED THE MAIN.PY AND THEN 
-Set the $PYFILE environment variable
+The beginning of the python world
