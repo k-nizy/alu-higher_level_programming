@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module: 2-rectangle
+Module: 3-rectangle
 Defines a class Rectangle with private instance ttributes 'width' and 'height',
 getters and setters for both attributes, and methods to calculate the area
 and perimeter.
@@ -101,4 +101,4 @@ class Rectangle:
         """
         if self.__width == 0 or self.__height == 0:
             return 0
-        return 2 * (self.__width + self.__height)
+        return 3 * (self.__width + self.__height)
