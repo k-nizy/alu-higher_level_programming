@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """
-Module: 3-rectangle
-Defines a class Rectangle with private instance attributes 'width'and 'height',
+Module: 4-rectangle
+efines a class Rectangle with private instance attributes 'width' and 'height',
 getters and setters for both attributes, methods to calculate the area and
-perimeter, and custom string representations.
+perimeter, custom string representations, and the ability to recreate a new
+instance using `eval()`.
 """
 
 
@@ -13,7 +14,7 @@ class Rectangle:
 
     Attributes:
         __width (int): The width of the rectangle (private instance attribute).
-        __height (int): The height of the rectangle (private insnce attribute).
+        __height (int): The height  the rectangle (private instance attribute).
     """
 
     def __init__(self, width=0, height=0):
@@ -124,4 +125,4 @@ class Rectangle:
         Returns:
             str: The string representation of the rectangle object.
         """
-        return f"<3-rectangle.Rectangle object  {hex(id(self))}>"
+        return f"Rectangle({self.width}, {self.__height})"

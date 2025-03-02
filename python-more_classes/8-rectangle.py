@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 """
-Module: 3-rectangle
-Defines a class Rectangle with private instance attributes 'width'and 'height',
-getters and setters for both attributes, methods to calculate the area and
-perimeter, and custom string representations.
+Module: 8-rectangle
+Defines a class Rectangle with private instance attributes 'width' and 'height',
+getters and setters for both attributes, public class attributes
+'number_of_instances' and 'print_symbol', methods to calculate the area and
+perimeter, custom string representations, a custom destructor, and a static
+method to compare rectangles based on their area.
 """
 
 
@@ -13,8 +15,13 @@ class Rectangle:
 
     Attributes:
         __width (int): The width of the rectangle (private instance attribute).
-        __height (int): The height of the rectangle (private insnce attribute).
+        __height (int): The height of the rectangle (private instance attribute).
+        number_of_instances (int): The number of Rectangle instances (public class attribute).
+        print_symbol (any): The symbol used for string representation (public class attribute).
     """
+
+    number_of_instances = 0  # Public class attribute
+    print_symbol = "#"  # Public class attribute
 
     def __init__(self, width=0, height=0):
         """
@@ -26,6 +33,7 @@ class Rectangle:
         """
         self.width = width  # Use the setter to validate the width
         self.height = height  # Use the setter to validate the height
+        Rectangle.number_of_instances += 1  # Increment the number of instances
 
     @property
     def width(self):
@@ -105,7 +113,8 @@ class Rectangle:
 
     def __str__(self):
         """
-        Returns a string representation of the rectangle using the '#' character.
+        Returns a string representation of the rectangle using the symbol stored
+        in `print_symbol`.
 
         Returns:
             str: The string representation of the rectangle.
@@ -114,7 +123,7 @@ class Rectangle:
             return ""
         rectangle_str = []
         for _ in range(self.__height):
-            rectangle_str.append("#" * self.__width)
+            rectangle_str.append(str(self.print_symbol) * self.__width)
         return "\n".join(rectangle_str)
 
     def __repr__(self):
@@ -124,4 +133,36 @@ class Rectangle:
         Returns:
             str: The string representation of the rectangle object.
         """
-        return f"<3-rectangle.Rectangle object  {hex(id(self))}>"
+        return f"Rectangle({self.__width}, {self.__height})"
+
+    def __del__(self):
+        """
+        Prints a message when an instance of Rectangle is deleted and decrements
+        the number of instances.
+        """
+        Rectangle.number_of_instances -= 1  # Decrement the number of instances
+        print("Bye rectangle...")
+
+    @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
+        """
+        Compares two rectangles based on their area and returns the bigger one.
+
+        Args:
+            rect_1 (Rectangle): The first rectangle to compare.
+            rect_2 (Rectangle): The second rectangle to compare.
+
+        Returns:
+            Rectangle: The rectangle with the larger area. If both have the same
+                       area, returns rect_1.
+
+        Raises:
+            TypeError: If rect_1 or rect_2 is not an instance of Rectangle.
+        """
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError("rect_1 must be an instance of Rectangle")
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError("rect_2 must be an instance of Rectangle")
+        if rect_1.area() >= rect_2.area():
+            return rect_1
+        return rect_2
