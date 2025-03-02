@@ -1,16 +1,16 @@
 #!/usr/bin/python3
 """
+Defines a class Square with private instance attributes 'size' and
+'position', getters and setters for both attributes, a method to
+calculate the area, and a method to print the square considering the
+position.
 Module: 6-square
-Defines a class Square with private instance attributes 'size' and 'position',
-getters and setters for both attributes, a method to calculate the area,
-and a method to print the square considering the position.
 """
 
 
 class Square:
     """
     A class that defines a square by its size and position.
-
     Attributes:
         __size (int): The size of the square (private instance attribute).
         __position (tuple): The position of the square (private instance attribute).
@@ -108,3 +108,4 @@ class Square:
         # Print the square with horizontal offset (position[0])
         for _ in range(self.__size):
             print(" " * self.__position[0] + "#" * self.__size)
+          
