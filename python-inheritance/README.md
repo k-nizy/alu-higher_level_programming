@@ -1,11 +1,8 @@
 #  Python - Inheritance
 ## Python  OOP  Inheritance
 
-### **Tasks**
 
-```diff
-
-! 0. Lookup 
+ 0. Lookup 
 - mandatory 
 - Write a function that returns the list of available attributes and methods of an object: 
 
@@ -13,7 +10,7 @@
 - Returns a list object 
 - You are not allowed to import any module 
 
-! 1. My list 
+ 1. My list 
 - mandatory 
 - Write a class MyList that inherits from list: 
 
@@ -21,41 +18,41 @@
 - You can assume that all the elements of the list will be of type int 
 - You are not allowed to import any module 
 
-! 2. Exact same object 
+ 2. Exact same object 
 - mandatory 
 - Write a function that returns True if the object is exactly an instance of the specified class ; otherwise False. 
 
 - Prototype: def is_same_class(obj, a_class): 
 - You are not allowed to import any module 
 
-! 3. Same class or inherit from 
+ 3. Same class or inherit from 
 - mandatory 
 - Write a function that returns True if the object is an instance of, or if the object is an instance of a class that inherited from, the specified class ; otherwise False. 
 
 - Prototype: def is_kind_of_class(obj, a_class): 
 - You are not allowed to import any module 
 
-! 4. Only sub class of 
+ 4. Only sub class of 
 - mandatory 
 - Write a function that returns True if the object is an instance of a class that inherited (directly or indirectly) from the specified class ; otherwise False. 
 
 - Prototype: def inherits_from(obj, a_class): 
 - You are not allowed to import any module 
 
-! 5. Geometry module 
+ 5. Geometry module 
 - mandatory 
 - Write an empty class BaseGeometry. 
 
 - You are not allowed to import any module 
 
-! 6. Improve Geometry 
+ 6. Improve Geometry 
 - mandatory 
 - Write a class BaseGeometry (based on 5-base_geometry.py). 
 
 - Public instance method: def area(self): that raises an Exception with the message area() is not implemented 
 - You are not allowed to import any module 
 
-! 7. Integer validator 
+ 7. Integer validator 
 - mandatory 
 - Write a class BaseGeometry (based on 6-base_geometry.py). 
 
@@ -66,7 +63,7 @@
 - if value is less or equal to 0: raise a ValueError exception with the message <name> must be greater than 0 
 - You are not allowed to import any module 
 
-! 8. Rectangle 
+ 8. Rectangle 
 - mandatory 
 - Write a class Rectangle that inherits from BaseGeometry (7-base_geometry.py).
 
@@ -74,7 +71,7 @@
 - width and height must be private. No getter or setter 
 - width and height must be positive integers, validated by integer_validator 
 
-! 9. Full rectangle 
+ 9. Full rectangle 
 - mandatory 
 - Write a class Rectangle that inherits from BaseGeometry (7-base_geometry.py). (task based on 8-rectangle.py) 
 
@@ -84,7 +81,7 @@
 - the area() method must be implemented 
 - print() should print, and str() should return, the following rectangle description: [Rectangle] <width>/<height> 
 
-! 10. Square #1 
+ 10. Square #1 
 - mandatory 
 - Write a class Square that inherits from Rectangle (9-rectangle.py): 
 
@@ -93,7 +90,7 @@
 - size must be a positive integer, validated by integer_validator 
 - the area() method must be implemented 
 
-! 11. Square #2 
+ 11. Square #2 
 - mandatory 
 - Write a class Square that inherits from Rectangle (9-rectangle.py). (task based on 10-square.py). 
 
@@ -103,14 +100,14 @@
 - the area() method must be implemented 
 - print() should print, and str() should return, the square description: [Square] <width>/<height> 
 
-! 12. My integer 
+ 12. My integer 
 - advanced 
 - Write a class MyInt that inherits from int: 
 
 - MyInt is a rebel. MyInt has == and != operators inverted 
 - You are not allowed to import any module 
 
-! 13. Can I? 
+ 13. Can I? 
 - advanced 
 - Write a function that adds a new attribute to an object if it’s possible: 
 
