@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-his module defines a Student class with public instance attributes and a method
+This module defines a Student class with public instance attributes and a method
 to retrieve a dictionary representation of the instance, optionally filtering
 attributes based on a list of attribute names.
 """
@@ -35,16 +35,22 @@ class Student:
         Retrieves a dictionary representation of the Student instance.
 
         Args:
-            attrs (list): A list  attribute names to include in the dictionary.
+            attrs (list): A list of attribute names to include in the dictionary.
                           If None, all attributes are included.
 
         Returns:
             dict: A dictionary containing the specified attributes.
         """
         if attrs is None:
-            return self.__dict__
+            # Explicitly specify the order of keys
+            return {
+                'age': self.age,
+                'last_name': self.last_name,
+                'first_name': self.first_name
+            }
         else:
-            return {key: value for key, value in self.__dict__.items() if key}
+            # Filter attributes based on the provided list and maintain order
+            return {key: getattr(self, key) for key in attrs if hasattr(self, key)}
 
 
 # Example usage:
