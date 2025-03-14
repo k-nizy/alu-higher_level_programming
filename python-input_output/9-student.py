@@ -1,45 +1,20 @@
 #!/usr/bin/python3
-
-"""
-his module defines a Student class with public instance attributes and a method
-to retrieve a dictionary representation of the instance.
-"""
+''' a class Student that defines a student
+'''
 
 
 class Student:
-    """
-    A class representing a student.
-
-    Attributes:
-        first_name (str): The first name of the student.
-        last_name (str): The last name of the student.
-        age (int): The age of the student.
-    """
+    '''module class student
+    '''
 
     def __init__(self, first_name, last_name, age):
-        """
-        Initializes a Student instance.
-
-        Args:
-            first_name (str): The first name of the student.
-            last_name (str): The last name of the student.
-            age (int): The age of the student.
-        """
+        '''method __init__
+        '''
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self):
-        """
-        Retrieves a dictionary representation of the Student instance.
-
-        Returns:
-            dict: A dictionary containing the student's attributes.
-        """
+        '''method to_json
+        '''
         return self.__dict__
-
-
-# Example usage:
-# student = Student("John", "Doe", 23)
-# j_student = student.to_json()
-# print(j_student)

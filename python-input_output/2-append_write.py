@@ -1,25 +1,14 @@
 #!/usr/bin/python3
-
-"""
-This module provides a function to write a string to a text file and return the
-number of characters written.
-
-The function `write_file` writes the provided text to a file specified by the
-filename. If the file does not exist, it creates it. If the file exists, it
-overwrites its content. The function returns the number of characters written.
-"""
+"""Defines a file-appending function."""
 
 
-def write_file(filename="", text=""):
-    """
-    Write a string to a text file and returns the number of characters written.
-
+def append_write(filename="", text=""):
+    """Appends a string to the end of a UTF8 text file.
     Args:
-        filename (str): The name of  file to write to. Defa to an empty string.
-        text (str): The text to write to the file. Defaults to an empty string.
-
+        filename (str): The name of the file to append to.
+        text (str): The string to append to the file.
     Returns:
-        int: The number of characters written.
+        The number of characters appended.
     """
-    with open(filename, mode='w', encoding='utf-8') as file:
-        return file.write(text)
+    with open(filename, "a", encoding="utf-8") as f:
+        return f.write(text)
