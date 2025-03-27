@@ -1,31 +1,47 @@
 #!/usr/bin/python3
 """
-Script that lists all values in the `states` table of `hbtn_0e_0_usa`
-where `name` matches the argument `state name searched`.
-Arguments:
-    mysql username (str)
-    mysql password (str)
-    database name (str)
-    state name searched (str)
+Script to safely filter states by name, protected against SQL injection
 """
 
-import sys
 import MySQLdb
+import sys
+
+def safe_filter_states(username, password, dbname, state_name):
+    """
+    Connects to MySQL database and safely filters states by name
+    """
+    try:
+        # Connect to MySQL server
+        db = MySQLdb.connect(
+            host="localhost",
+            port=3306,
+            user=username,
+            passwd=password,
+            db=dbname
+        )
+        
+        # Create a cursor object
+        cursor = db.cursor()
+        
+        # Execute the query with parameterized input
+        query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+        cursor.execute(query, (state_name,))
+        
+        # Fetch all rows
+        rows = cursor.fetchall()
+        
+        # Display results
+        for row in rows:
+            print(row)
+            
+        # Close cursor and database connection
+        cursor.close()
+        db.close()
+        
+    except MySQLdb.Error as e:
+        print(f"Error connecting to MySQL: {e}")
+        sys.exit(1)
 
 if __name__ == "__main__":
-    mySQL_u = sys.argv[1]
-    mySQL_p = sys.argv[2]
-    db_name = sys.argv[3]
-
-    searched_name = sys.argv[4]
-
-    # By default, it will connect to localhost:3306
-    db = MySQLdb.connect(user=mySQL_u, passwd=mySQL_p, db=db_name)
-    cur = db.cursor()
-
-    cur.execute("SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY id"
-                .format(searched_name))
-    rows = cur.fetchall()
-
-    for row in rows:
-        print(row)
+    if len(sys.argv) == 5:
+        safe_filter_states(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
